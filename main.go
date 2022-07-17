@@ -9,8 +9,7 @@ import (
 )
 
 func main() {
-	p := tea.NewProgram(pkg.InitialModel())
-
+	p := tea.NewProgram(pkg.InitialModel(), tea.WithAltScreen())
 	if p.Start() != nil {
 		fmt.Println("Could not trigger program")
 		os.Exit(1)

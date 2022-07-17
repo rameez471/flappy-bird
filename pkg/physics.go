@@ -5,11 +5,15 @@ type Point struct {
 	Y int
 }
 
-func (p Point) NewPoint(x int, y int) *Point {
-	return &Point{
+func NewPoint(x, y int) Point {
+	return Point{
 		X: x,
 		Y: y,
 	}
+}
+
+func (p *Point) GetPoint() (x, y int) {
+	return p.X, p.Y
 }
 
 type Vector struct {
