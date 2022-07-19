@@ -59,6 +59,9 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		delta := now.Sub(m.lastUpdate).Seconds()
 		m.lastUpdate = now
 		m.bird.Move(delta)
+		if int(m.bird.Position.Y) >= m.screen.height {
+			return m, tea.Quit
+		}
 		return m, waitForActivity(m.sub)
 	case tea.KeyMsg:
 		switch msg.String() {
